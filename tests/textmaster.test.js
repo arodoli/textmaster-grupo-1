@@ -13,6 +13,7 @@ describe('Pruebas para TextMaster', () => {
     expect(reverse('hola')).toBe('aloh');
     expect(reverse('12345')).toBe('54321');
     expect(reverse('')).toBe('');
+    
   });
 });
 
