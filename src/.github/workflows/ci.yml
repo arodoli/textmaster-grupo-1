@@ -1,0 +1,35 @@
+name: CI Pipeline
+
+# 1. DISPARADOR (Trigger)
+# Se ejecuta en Pull Requests a 'master' Y en pushes directos a 'master'
+on:
+
+  pull_request:
+    branches: [ main ]
+
+# 2. JOBS (Tareas)
+# Definimos los "trabajos" que se van a ejecutar
+jobs:
+  
+  #--- JOB 1: TEST (CI) ---
+  # Este job se ejecuta SIEMPRE (en PRs y en push a master)
+  test:
+    name: 1. Test (CI)
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js v24
+        uses: actions/setup-node@v3
+        with:
+          node-version: '24'
+          cache: 'npm'
+      
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Ejecutar tests
+        run: npm test
