@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 
 // Definimos una ruta "Home" (/)
 app.get('/', (req, res) => {
-  res.send('Bienvenido a TextMaster API. Servidor: ',);
+  res.send('Bienvenido a TextMaster API. Servidor: Grupo 1');
 });
 
 /*app.get('/health', (req, res) => {
