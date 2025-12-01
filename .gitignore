@@ -1,0 +1,16 @@
+# Dependencias
+# Ignora la carpeta de paquetes descargados por NPM
+/node_modules
+
+# Logs
+# Ignora los archivos de log de npm y otros
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs
+*.log
+
+# Archivos del Sistema Operativo
+# Ignora los archivos de sistema de macOS y Windows
+.DS_Store
+Thumbs.db

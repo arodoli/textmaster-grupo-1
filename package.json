@@ -1,0 +1,13 @@
+{
+  "name": "textmaster-api",
+  "version": "1.0.0",
+  "description": "Actividad Entregable para la unidad UD2 de DevOps (CI con Node.js)",
+  "main": "src/server.js",
+  "dependencies": {
+    "express": "^5.1.0",
+    "morgan": "^1.10.1"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
