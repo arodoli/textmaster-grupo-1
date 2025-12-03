@@ -3,6 +3,9 @@ const express = require('express');
 // Importar morgan para logging HTTP
 const morgan = require('morgan');
 
+// Importamos nuestras funciones
+const { reverse, analyze } = require('./textmaster');
+
 // Creamos la aplicación de Express
 const app = express();
 
@@ -24,6 +27,17 @@ app.get('/', (req, res) => {
     timestamp: new Date(),
     uptime: process.uptime() });
 });*/
+
+app.get("/analyze", (req, res) => {
+  const { text } = req.query;
+
+  if (!text) {
+    return res.status(400).json({ error: 'Debe enviar un campo "texto"' });
+  }
+
+  const resultado = analyze(text);
+  res.json(resultado);
+})
 
 // Ponemos el servidor a "escuchar" en el puerto definido
 app.listen(PORT, () => {
