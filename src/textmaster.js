@@ -19,7 +19,18 @@ function analyze(text){
   };
 }
 
+// Esta función va a transformar el texto a mayúsculas o minúsculas dependiendo de la acción indicada.
+function transform(text, action) {
+  if (action === 'upper') {
+    return text.toUpperCase();
+
+  } else if (action === 'lower') {
+    return text.toLowerCase();
+  }
+  return text; // Si la acción no es reconocida, devolver el texto sin cambios
+}
+
 // Exportamos las funciones que queremos que sean "públicas"
 // para que los tests (y otras partes de la app) puedan usarlas.
 // ¡No olvidar añadir la nueva función aquí!
-module.exports = { reverse, analyze };
+module.exports = { reverse, analyze, transform };
