@@ -41,8 +41,8 @@ describe('Pruebas para TextMaster', () => {
   it('debería mostrar la salud correctamente', () => {
     const healthStatus = {
       status: 'OK',
-      timestamp: expect.any(Date),
-      uptime: expect.any(Number)
+      timestamp: new Date(),
+      uptime: process.uptime()
     };
     expect(healthStatus.status).toBe('OK');
     expect(healthStatus.timestamp).toBeInstanceOf(Date);
