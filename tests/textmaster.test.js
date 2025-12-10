@@ -10,6 +10,8 @@ describe('Pruebas para TextMaster', () => {
     expect(reverse('hola')).toBe('aloh');
     expect(reverse('12345')).toBe('54321');
     expect(reverse('')).toBe('');
+    expect(reverse("esto es una cadena con espacios y larga"))
+    .toBe("agral y soicapse noc anedac anu se otse");
   });
 
   it('debería analizar el texto correctamente', () => {
@@ -27,6 +29,11 @@ describe('Pruebas para TextMaster', () => {
       longitud: 12,
       conteoPalabras: 3,
       tieneNumero: true
+    });
+    expect(analyze('')).toEqual({
+      longitud: 0,
+      conteoPalabras: 0,
+      tieneNumero: false
     });
   });
 

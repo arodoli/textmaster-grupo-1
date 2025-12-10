@@ -4,7 +4,7 @@ const express = require('express');
 const morgan = require('morgan');
 
 // Importamos nuestras funciones
-const { reverse, analyze } = require('./textmaster');
+const { reverse, analyze, transform } = require('./textmaster');
 
 // Creamos la aplicación de Express
 const app = express();
@@ -54,8 +54,8 @@ app.get("/transform", (req, res) => {
   if (!text || !operation) {
     return res.status(400).json({ error: 'Debe enviar los campos "text" y "operation"' });
   }
-  // Add your transform logic here
-  res.json({ message: 'Transform operation not implemented yet' });
+  const transformedText = transform(text, operation);
+  res.json({ transformedText });
 });
 
 // Ponemos el servidor a "escuchar" en el puerto definido
