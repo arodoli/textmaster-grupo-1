@@ -1,4 +1,4 @@
-// Importamos la librería Express
+﻿// Importamos la librería Express
 const express = require('express');
 // Importar morgan para logging HTTP
 const morgan = require('morgan');
@@ -21,12 +21,21 @@ app.get('/', (req, res) => {
   res.send('Bienvenido a TextMaster API. Servidor: Grupo 1');
 });
 
-/*app.get('/health', (req, res) => {
+app.get('/health', (req, res) => {
   res.json({
     status: 'OK',
     timestamp: new Date(),
     uptime: process.uptime() });
-});*/
+});
+
+app.get('/reverse', (req, res) => {
+  const { text } = req.query;
+  if (!text) {
+    return res.status(400).json({ error: 'Debe enviar un campo "text"' });
+  }
+  const reversedText = reverse(text);
+  res.json({ reversedText });
+});
 
 app.get("/analyze", (req, res) => {
   const { text } = req.query;
