@@ -37,4 +37,15 @@ describe('Pruebas para TextMaster', () => {
     expect(transform('Hola Mundo', 'lower')).toBe('hola mundo');
     expect(transform('Texto Sin Cambios', 'none')).toBe('Texto Sin Cambios');
   });
+
+  it('debería mostrar la salud correctamente', () => {
+    const healthStatus = {
+      status: 'OK',
+      timestamp: expect.any(Date),
+      uptime: expect.any(Number)
+    };
+    expect(healthStatus.status).toBe('OK');
+    expect(healthStatus.timestamp).toBeInstanceOf(Date);
+    expect(typeof healthStatus.uptime).toBe('number');
+  });
 });
