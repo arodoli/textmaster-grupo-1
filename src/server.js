@@ -48,6 +48,16 @@ app.get("/analyze", (req, res) => {
   res.json(resultado);
 })
 
+// Creamos el endpoint /transform
+app.get("/transform", (req, res) => {
+  const { text, operation } = req.query;
+  if (!text || !operation) {
+    return res.status(400).json({ error: 'Debe enviar los campos "text" y "operation"' });
+  }
+  // Add your transform logic here
+  res.json({ message: 'Transform operation not implemented yet' });
+});
+
 // Ponemos el servidor a "escuchar" en el puerto definido
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
