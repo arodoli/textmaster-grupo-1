@@ -54,8 +54,8 @@ app.get("/transform", (req, res) => {
   if (!text || !operation) {
     return res.status(400).json({ error: 'Debe enviar los campos "text" y "operation"' });
   }
-  // Add your transform logic here
-  res.json({ message: 'Transform operation not implemented yet' });
+  const transformedText = transform(text, operation);
+  res.json({ transformedText });
 });
 
 // Ponemos el servidor a "escuchar" en el puerto definido
