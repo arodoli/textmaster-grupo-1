@@ -4,7 +4,7 @@ const express = require('express');
 const morgan = require('morgan');
 
 // Importamos nuestras funciones
-const { reverse, analyze } = require('./textmaster');
+const { reverse, analyze, transform } = require('./textmaster');
 
 // Creamos la aplicación de Express
 const app = express();
